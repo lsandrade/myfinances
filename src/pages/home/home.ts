@@ -10,20 +10,22 @@ import {ServiceProvider} from '../../providers/service-provider';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  
+
   teste: string = "Teste";
 
   users:any[];
 
   constructor(public navCtrl: NavController, public service: ServiceProvider) {
-    
+    this.getDados();
+  }
+  getDados(){
+    this.service.getData().subscribe(
+      data => this.users = data.users,
+      err => console.log(err)
+    );
   }
 
-  getDados(){
-  	this.service.getData().subscribe(
-  		data => this.users = data,
-  		err => console.log(err)
-  	);
-  }
+
+
 
 }
