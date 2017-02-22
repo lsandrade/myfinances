@@ -18,6 +18,6 @@ import {ServiceProvider} from '../providers/service-provider';
     MyApp,
     HomePage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},ServiceProvider]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},{provide: ServiceProvider, useClass: ServiceProvider}]
 })
 export class AppModule {}

@@ -14,10 +14,72 @@
   <p>
     {{ teste }}, Olar
   </p>
-  <ion-input name="nome" type="text" [(ngModel)]='nomeTeste'></ion-input>
-  <input type="text" name="email" [value]="email" (input)="email = $event.target.value">
-  {{nomeTeste}}
-  {{email}}
+  <!--<input type="text" name="email" [value]="email" (input)="email = $event.target.value">-->
+  <!--{{nomeTeste}}
+  {{email}}-->
+
+<!--
+  <h2>Cadastro</h2>
+  <form [formGroup]="cadastro" (ngSubmit)="postDados()">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>
+          Nome
+        </ion-label>
+        <ion-input name="nome" type="text" formControlName="nome"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>
+          E-mail
+        </ion-label>
+        <ion-input name="email" type="text" formControlName="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>
+          Senha
+        </ion-label>
+        <ion-input name="senha" type="password" formControlName="senha"></ion-input>
+      </ion-item>
+      <ion-item>
+        <button ion-button [disabled]="cadastro.invalid" full block color="danger">Enviar</button>
+      </ion-item>
+    </ion-list>
+  </form>
+-->
+  <h2>Cadastro 2</h2>
+  <form #f="ngForm" (ngSubmit)="postDados(f)">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>
+          Nome
+        </ion-label>
+        <ion-input name="nome" type="text" ngModel #nome="ngModel"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>
+          E-mail
+        </ion-label>
+        <ion-input name="email" type="text" ngModel #email="ngModel"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>
+          Senha
+        </ion-label>
+        <ion-input name="senha" type="password" ngModel #senha="ngModel"></ion-input>
+      </ion-item>
+      <ion-item>
+        <button ion-button [disabled]="cadastro.invalid" full block color="danger">Enviar</button>
+      </ion-item>
+    </ion-list>
+  </form>
+  <p>Valor do formulario: {{f.value | json}}</p>
+
+
+
   <ion-card>
 
   	<ion-card-content *ngFor="let user of users">

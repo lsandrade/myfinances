@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+//import { Validators, FormBuilder } from '@angular/forms';
+
+import { NgForm } from '@angular/forms';
+
+
 import { NavController } from 'ionic-angular';
 
 import {ServiceProvider} from '../../providers/service-provider';
@@ -16,8 +21,16 @@ export class HomePage implements OnInit{
   nome: boolean = false;
   nomeTeste: string;
   email: string;
+  cadastro: any = {};
 
-  constructor(public navCtrl: NavController, public service: ServiceProvider) {}
+  constructor(public navCtrl: NavController, public service: ServiceProvider, /*public formBuilder: FormBuilder*/) {
+    /*this.cadastro = this.formBuilder.group({
+      nome:['',Validators.required],
+      email:['',Validators.required],
+      senha:['',Validators.required]
+    });*/
+
+  }
 
   ngOnInit(){
     this.getDados();
@@ -35,6 +48,11 @@ export class HomePage implements OnInit{
       data => this.users = data.users,
       err => console.log(err)
     );
+  }
+
+  postDados(f){
+    //console.log(this.cadastro.value);
+    console.log(f.value);
   }
 
 
