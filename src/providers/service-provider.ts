@@ -38,4 +38,14 @@ export class ServiceProvider {
        );
      }
 
+     updateData(id){
+       let headers = new Headers({'Content-type':'application/x-www-form-urlencoded'});
+       return this.http.post(this.api+'atualiza.php',id,{
+         headers: headers,
+         method: "POST"
+       }).map(
+         (res:Response) => {return res.json();}
+       );
+     }
+
 }
