@@ -60,6 +60,15 @@ export class HomePage implements OnInit{
       );
   }
 
+  deletarDados(user){
+    console.log(user);
+    /*this.service.postData(user.id)
+      .subscribe(
+        data=>{console.log(data.message); this.getDados();},
+        err=>console.log(err)
+      );*/
+  }
+
 
 
 
