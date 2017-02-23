@@ -83,7 +83,7 @@ export class HomePage implements OnInit{
       ],
       buttons: [
         { text: 'Cancelar', handler: data=>{ console.log("Cancelado."); } },
-        { text: 'Salvar', handler: data=> { let params: any{id: req.id, nome: data.nome, email: data.email}
+        { text: 'Salvar', handler: data=> { let params: any={id: req.id, nome: data.nome, email: data.email}
                                             console.log(data);
                                             this.service.updateData(params).subscribe(
                                               data=>console.log(data.message),
