@@ -29,8 +29,12 @@ export class ContasPage {
 
   insert(){
     let modal = this.modalCtrl.create(ModalContasPage);
+
+    modal.onDidDismiss(data=>{
+      this.dao.insert(data);
+    });
     modal.present();
-    
+
   }
 
 }

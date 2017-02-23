@@ -12,7 +12,8 @@ import { NavController, NavParams, ViewController } from 'ionic-angular';
   templateUrl: 'modal-contas.html'
 })
 export class ModalContasPage {
-  
+
+  conta = {descricao:""};
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {}
 
@@ -22,6 +23,10 @@ export class ModalContasPage {
 
   cancel(){
     this.viewCtrl.dismiss();
+  }
+
+  save(){
+    this.viewCtrl.dismiss(this.conta);
   }
 
 }

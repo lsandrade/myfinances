@@ -10,16 +10,21 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class DaoProvider {
-  list: any = [ {descricao:"Alimentação"},
-                {descricao:"Lazer"},
-                {descricao:"Transporte"}];
 
+  list = [];
   constructor(public http: Http) {
     console.log('Hello DaoProvider Provider');
+    this.list= [ {descricao:"Alimentação"},
+                  {descricao:"Lazer"},
+                  {descricao:"Transporte"}];
   }
 
   getList(){
     return this.list;
+  }
+
+  insert(conta){
+    this.list.push(conta);
   }
 
 }
