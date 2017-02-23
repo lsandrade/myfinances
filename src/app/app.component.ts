@@ -1,15 +1,21 @@
-import { Component } from '@angular/core';
+import { Component   } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { HomePage } from '../pages/home/home';
+import { ContasPage } from '../pages/contas/contas';
 
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage = HomePage;
+  rootPage: any = HomePage;
+  //@ViewChild('myNav') nav: NavController;
+  pages = [
+      { title: 'Home', component: HomePage },
+      { title: 'Contas', component: ContasPage }
+    ];
 
   constructor(platform: Platform) {
     platform.ready().then(() => {
@@ -18,5 +24,9 @@ export class MyApp {
       StatusBar.styleDefault();
       Splashscreen.hide();
     });
+  }
+
+  openPage(opcao){
+    this.rootPage = (opcao.component);
   }
 }
