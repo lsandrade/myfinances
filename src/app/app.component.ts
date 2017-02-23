@@ -11,7 +11,7 @@ import { ContasPage } from '../pages/contas/contas';
 })
 export class MyApp {
   rootPage: any = HomePage;
-  //@ViewChild('myNav') nav: NavController;
+
   pages = [
       { title: 'Home', component: HomePage },
       { title: 'Contas', component: ContasPage }
@@ -27,6 +27,6 @@ export class MyApp {
   }
 
   openPage(opcao){
-    this.rootPage = (opcao.component);
+    this.rootPage = opcao.component;
   }
 }
