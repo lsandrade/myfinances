@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
+
+import { DaoProvider } from '../../providers/dao-provider';
+import { ModalContasPage } from '../modal-contas/modal-contas';
+
 
 /*
   Generated class for the Contas page.
@@ -13,10 +17,20 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ContasPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  listaContas: any;
+
+  constructor(private navCtrl: NavController, public navParams: NavParams, public dao: DaoProvider, public modalCtrl: ModalController) {
+    this.listaContas = dao.getList();
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ContasPage');
+  }
+
+  insert(){
+    let modal = this.modalCtrl.create(ModalContasPage);
+    modal.present();
+    
   }
 
 }

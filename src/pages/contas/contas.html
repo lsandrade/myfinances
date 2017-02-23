@@ -16,5 +16,14 @@
 </ion-header>
 
 <ion-content padding>
-  Contas
+
+  <ion-list>
+    <ion-item *ngFor="let conta of listaContas">
+      <h1>{{conta.descricao}}</h1>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab right bottom padding>
+    <button ion-fab color="danger" (click)="insert()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
 </ion-content>
