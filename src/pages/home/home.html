@@ -95,9 +95,14 @@
         <h1 *ngIf="nome">{{user.nome}}</h1>
     	  <p>{{user.email}}</p>
       </ion-item>
-      <ion-item-options slide="right">
+      <ion-item-options side="right">
         <button ion-button color="danger" (click)="deletarDados(user)">
           DELETAR
+        </button>
+      </ion-item-options>
+      <ion-item-options side="left">
+        <button ion-button color="secondary" (click)="editarDados(user)">
+          EDITAR
         </button>
       </ion-item-options>
     </ion-item-sliding>

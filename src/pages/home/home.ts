@@ -4,10 +4,11 @@ import { Component, OnInit } from '@angular/core';
 
 import { NgForm } from '@angular/forms';
 
-
 import { NavController } from 'ionic-angular';
 
 import {ServiceProvider} from '../../providers/service-provider';
+
+import { AlertController } from 'ionic-angular';
 
 
 @Component({
@@ -23,7 +24,10 @@ export class HomePage implements OnInit{
   email: string;
   cadastro: any = {};
 
-  constructor(public navCtrl: NavController, public service: ServiceProvider, /*public formBuilder: FormBuilder*/) {
+  constructor(public navCtrl: NavController,
+    public service: ServiceProvider, /*public formBuilder: FormBuilder*/
+    public alertCtrl: AlertController
+  ) {
     /*this.cadastro = this.formBuilder.group({
       nome:['',Validators.required],
       email:['',Validators.required],
@@ -62,6 +66,36 @@ export class HomePage implements OnInit{
 
   deletarDados(user){
     console.log(user);
+    /*this.service.postData(user.id)
+      .subscribe(
+        data=>{console.log(data.message); this.getDados();},
+        err=>console.log(err)
+      );*/
+  }
+
+  editarDados(req){
+    //console.log(req);
+    let prompt = this.alertCtrl.create({
+      title: 'Editar Perfil',
+      inputs: [
+        {name:'nome', placeholder:'Nome', value: req.nome},
+        {name:'email', placeholder:'E-mail', value: req.email}
+      ],
+      buttons: [
+        { text: 'Cancelar', handler: data=>{ console.log("Cancelado."); } },
+        { text: 'Salvar', handler: data=> { let params: any{id: req.id, nome: data.nome, email: data.email}
+                                            console.log(data);
+                                            this.service.updateData(params).subscribe(
+                                              data=>console.log(data.message),
+                                              err=>console.log(err)
+                                            );
+                                            this.getDados();
+                                          }
+        }
+      ]
+    });
+    prompt.present();
+
     /*this.service.postData(user.id)
       .subscribe(
         data=>{console.log(data.message); this.getDados();},
