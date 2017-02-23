@@ -53,6 +53,11 @@ export class HomePage implements OnInit{
   postDados(f){
     //console.log(this.cadastro.value);
     console.log(f.value);
+    this.service.postData(f.value)
+      .subscribe(
+        data=>console.log(data.message),
+        err=>console.log(err)
+      );
   }
 
 
