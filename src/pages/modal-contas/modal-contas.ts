@@ -13,9 +13,12 @@ import { NavController, NavParams, ViewController } from 'ionic-angular';
 })
 export class ModalContasPage {
 
-  conta = {descricao:""};
+  conta: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
+    this.conta = navParams.get("parametro") || {descricao:""};
+    console.log("parametro: "+ navParams.get("parametro"));
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ModalContasPage');

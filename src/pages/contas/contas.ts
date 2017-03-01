@@ -37,4 +37,13 @@ export class ContasPage {
 
   }
 
+  edit(conta){
+    let modal = this.modalCtrl.create(ModalContasPage, {"parametro":conta});
+    console.log(conta);
+    modal.onDidDismiss(data=>{
+      this.dao.edit(data);
+    });
+    modal.present();
+  }
+
 }

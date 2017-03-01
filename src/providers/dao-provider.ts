@@ -27,4 +27,8 @@ export class DaoProvider {
     this.list.push(conta);
   }
 
+  edit(conta){
+
+  }
+
 }
