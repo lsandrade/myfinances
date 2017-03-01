@@ -46,4 +46,8 @@ export class ContasPage {
     modal.present();
   }
 
+  delete(conta){
+    this.dao.delete(conta);
+  }
+
 }
