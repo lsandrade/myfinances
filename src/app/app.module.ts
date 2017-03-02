@@ -11,6 +11,8 @@ import { ModalContasPage } from '../pages/modal-contas/modal-contas'
 import {ServiceProvider} from '../providers/service-provider';
 import {DaoProvider} from '../providers/dao-provider';
 
+import { Storage } from '@ionic/storage';
+
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import {DaoProvider} from '../providers/dao-provider';
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
               {provide: ServiceProvider, useClass: ServiceProvider},
-              {provide: DaoProvider, useClass: DaoProvider}]
+              {provide: DaoProvider, useClass: DaoProvider},
+              Storage]
 })
 export class AppModule {}

@@ -23,6 +23,7 @@ export class ContasPage {
     this.listaContas = dao.getList();
   }
 
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad ContasPage');
   }
